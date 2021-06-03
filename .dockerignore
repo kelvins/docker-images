@@ -4,3 +4,4 @@ Dockerfile
 .git
 .gitignore
 docker-compose.yaml
+test
