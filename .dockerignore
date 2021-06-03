@@ -5,3 +5,5 @@ Dockerfile
 .gitignore
 docker-compose.yaml
 test
+data
+storage
