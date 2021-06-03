@@ -41,3 +41,5 @@ To test it locally using the Mlflow Python SDK, you need to follow these steps:
 - Run the Python script: `$ python test_mlflow.py`
 
 If everything goes well, you will see an experiment called `my-experiment` on Mlflow.
+
+> Note that the experiments information will be stored locally in the `./data` directory (PostgreSQL) and the artifacts will be stored locally in the `./storage` directory (MinIO).
