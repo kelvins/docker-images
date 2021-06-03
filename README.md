@@ -1,6 +1,13 @@
 # Mlflow Image
 
-Docker image that runs [Mlflow](https://www.mlflow.org/) server using [PostgreSQL](https://www.postgresql.org/) as database and [MinIO](https://min.io/) as storage (for artifacts).
+![Mlflow: 1.17.0](https://img.shields.io/badge/Mlflow-1.17.0-informational?style=flat-square)
+
+Docker image that runs [Mlflow](https://www.mlflow.org/) server with default support for:
+
+- [PostgreSQL](https://www.postgresql.org/)
+- [MySQL](https://www.mysql.com/)
+- [MinIO](https://min.io/)
+- [Amazon S3](https://aws.amazon.com/s3/)
 
 ## Build Docker image
 
@@ -9,6 +16,10 @@ $ docker build -t mlflow .
 ```
 
 ## Running with docker-compose
+
+The `docker-compose.yaml` is defining the Mlflow service, the PostgreSQL as a database service and the MinIO as a storage service (for artifacts).
+
+To run all services simply run:
 
 ```sh
 $ docker-compose up
@@ -22,8 +33,9 @@ After all containers have started you can access the applications:
 
 To test it locally using the Mlflow Python SDK, you need to follow these steps:
 
-- Make sure you are using a virtual environment (I recommend [pyenv](https://github.com/pyenv/pyenv))
-- Install the `mlflow` and `boto3` packages (e.g. `$ pip install mlflow`)
+- Make sure all services are up and running (`$ docker-compose up`)
+- Make sure you are using a virtual environment
+- Install the `mlflow` and `boto3` packages from PyPI
 - Enter the `test` directory: `$ cd test`
 - Export the environment variables: `$ source .env`
 - Run the Python script: `$ python test_mlflow.py`
