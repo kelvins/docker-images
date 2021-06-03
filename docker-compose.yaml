@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  database:
+    image: postgres:13.3
+    restart: always
+    environment:
+      POSTGRES_DB: mlflow
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: supersafe
+    ports:
+      - 5432:5432
+  mlflow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      BACKEND_STORE_URI: postgresql+psycopg2://admin:supersafe@database:5432/mlflow
+      ARTIFACT_ROOT: /tmp
+    depends_on:
+      - database
+    ports:
+      - 5000:5000
