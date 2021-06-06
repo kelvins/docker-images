@@ -35,8 +35,8 @@ To test it locally using the Mlflow Python SDK, you need to follow these steps:
 
 - Make sure all services are up and running (`$ docker-compose up`)
 - Make sure you are using a virtual environment
-- Install the `mlflow` and `boto3` packages from PyPI
 - Enter the `test` directory: `$ cd test`
+- Install the dependencies: `$ pip install -r requirements.txt`
 - Export the environment variables: `$ source .env`
 - Run the Python script: `$ python test_mlflow.py`
 
