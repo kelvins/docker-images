@@ -1,6 +1,7 @@
-# Mlflow Image
+# mlflow
 
 ![Mlflow: 1.17.0](https://img.shields.io/badge/Mlflow-1.17.0-informational?style=flat-square)
+![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)
 
 Docker image that runs [Mlflow](https://www.mlflow.org/) server with default support for:
 
