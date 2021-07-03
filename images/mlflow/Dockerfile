@@ -5,12 +5,13 @@ RUN apt-get update && apt-get install -qq -y \
 
 ENV PORT 5000
 
-COPY requirements.txt entrypoint.sh /tmp/
+COPY requirements.txt entrypoint.sh /app/
 
-RUN pip install -r /tmp/requirements.txt
+RUN pip install -r /app/requirements.txt && \
+    rm /tmp/*.pem
 
 EXPOSE $PORT
 
-ENTRYPOINT ["/bin/bash", "/tmp/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/app/entrypoint.sh"]
 
 CMD ["bash", "-c", "mlflow server --host 0.0.0.0 --port $PORT --backend-store-uri $BACKEND_STORE_URI --default-artifact-root $ARTIFACT_ROOT"]
