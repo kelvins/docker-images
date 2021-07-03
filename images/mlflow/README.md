@@ -1,6 +1,6 @@
 # mlflow
 
-![Mlflow: 1.17.0](https://img.shields.io/badge/Mlflow-1.17.0-informational?style=flat-square)
+![Mlflow: 1.18.0](https://img.shields.io/badge/Mlflow-1.18.0-informational?style=flat-square)
 
 Docker image that runs [Mlflow](https://www.mlflow.org/) server with default support for:
 
@@ -11,7 +11,7 @@ Docker image that runs [Mlflow](https://www.mlflow.org/) server with default sup
 
 ## Build Docker image
 
-```sh
+```shell
 $ docker build -t mlflow .
 ```
 
@@ -21,7 +21,7 @@ The `docker-compose.yaml` is defining the Mlflow service, the PostgreSQL as a da
 
 To run all services simply run:
 
-```sh
+```shell
 $ docker-compose up
 ```
 

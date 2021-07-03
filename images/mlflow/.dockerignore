@@ -7,3 +7,4 @@ docker-compose.yaml
 test
 data
 storage
+Makefile
