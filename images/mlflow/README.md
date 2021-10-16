@@ -1,6 +1,6 @@
 # mlflow
 
-![Mlflow: 1.19.0](https://img.shields.io/badge/Mlflow-1.19.0-informational?style=flat-square)
+![Mlflow: 1.20.2](https://img.shields.io/badge/Mlflow-1.20.2-informational?style=flat-square)
 
 Docker image that runs [Mlflow](https://www.mlflow.org/) server with default support for:
 
