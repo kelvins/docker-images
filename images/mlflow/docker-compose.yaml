@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   database:
+    container_name: postgres
     image: postgres:13.3
     restart: always
     volumes:
@@ -12,18 +13,20 @@ services:
     ports:
       - 5432:5432
   storage:
+    container_name: minio
     image: minio/minio:latest
     restart: always
     entrypoint: sh
-    command: -c 'mkdir -p /storage/mlflow && /usr/bin/minio server /storage'
+    command: -c 'mkdir -p /storage/mlflow && minio server /storage'
     volumes:
       - ./storage:/storage
     environment:
-      MINIO_ACCESS_KEY: access-key
-      MINIO_SECRET_KEY: secret-key
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: supersafe
     ports:
       - 9000:9000
   mlflow:
+    container_name: mlflow
     build:
       context: .
       dockerfile: Dockerfile
@@ -31,8 +34,8 @@ services:
     environment:
       BACKEND_STORE_URI: postgresql+psycopg2://admin:supersafe@database:5432/mlflow
       ARTIFACT_ROOT: s3://mlflow
-      AWS_ACCESS_KEY_ID: access-key
-      AWS_SECRET_ACCESS_KEY: secret-key
+      AWS_ACCESS_KEY_ID: admin
+      AWS_SECRET_ACCESS_KEY: supersafe
       MLFLOW_S3_ENDPOINT_URL: http://storage:9000
     depends_on:
       - database
