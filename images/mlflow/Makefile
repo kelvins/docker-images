@@ -1,4 +1,4 @@
-VERSION=1.20.2
+VERSION=1.24.0
 
 .PHONY: build
 build:  # Build the docker image
