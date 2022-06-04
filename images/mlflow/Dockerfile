@@ -1,13 +1,15 @@
 FROM python:3.9.5-slim-buster
 
-RUN apt-get update && apt-get install -qq -y \
-    build-essential python3-dev python-mysqldb libpq-dev
+RUN apt-get update && \
+    apt-get install --no-install-recommends -qq -y \
+    build-essential python3-dev python-mysqldb libpq-dev && \
+    rm -rf /var/lib/apt/lists/*
 
 ENV PORT 5000
 
 COPY requirements.txt entrypoint.sh /app/
 
-RUN pip install -r /app/requirements.txt && \
+RUN pip install --no-cache-dir -r /app/requirements.txt && \
     rm /tmp/*.pem
 
 EXPOSE $PORT
