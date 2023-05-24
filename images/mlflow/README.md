@@ -1,6 +1,6 @@
 # mlflow
 
-![Mlflow: 1.26.1](https://img.shields.io/badge/Mlflow-1.26.1-informational?style=flat-square)
+![Mlflow: 2.3.2](https://img.shields.io/badge/Mlflow-2.3.2-informational?style=flat-square)
 
 Docker image that runs [Mlflow](https://www.mlflow.org/) server with default support for:
 
@@ -27,7 +27,7 @@ $ docker-compose up
 
 After all containers have started you can access the applications:
 - **Mlflow**: http://127.0.0.1:5000
-- **MinIO**: http://127.0.0.1:9000.
+- **MinIO**: http://127.0.0.1:9000
 
 ## Testing with Mlflow SDK
 
